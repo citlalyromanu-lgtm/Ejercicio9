@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Entrenador</title>
+</head>
+<body>
+<h2>¿Estás seguro de eliminar a este entrenador?</h2>
+
+<p><strong>Nombre:</strong> <span th:text="${entrenador.nombre}"></span></p>
+
+<form th:action="@{/entrenadores/borrar/{id}(id=${entrenador.id})}" method="post">
+    <button type="submit" style="color: white; background-color: red; padding: 5px 10px; border: none; cursor: pointer;">Sí, Eliminar</button>
+    <a th:href="@{/entrenadores}" style="margin-left: 10px;">Cancelar</a>
+</form>
+</body>
+</html>

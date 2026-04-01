@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Jugador</title>
+</head>
+<body>
+<h2>Agregar Jugador</h2>
+<form th:action="@{/jugadores/guardar}" th:object="${jugador}" method="post">
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required>
+    <br><br>
+
+    <label>Posición:</label>
+    <input type="text" th:field="*{posicion}" required>
+    <br><br>
+
+    <label>Número:</label>
+    <input type="number" th:field="*{numero}" required>
+    <br><br>
+
+    <button type="submit">Guardar</button>
+    <a th:href="@{/jugadores}">Cancelar</a>
+</form>
+</body>
+</html>
