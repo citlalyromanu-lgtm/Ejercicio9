@@ -13,15 +13,14 @@ public class EntrenadorC {
     @Autowired
     private EntrenadorSi servicio;
 
-    // LISTAR
+
     @GetMapping("/entrenadores")
     public String listarEntrenadores(Model model) {
         model.addAttribute("entrenadores", servicio.listarTodos());
-        // Debe coincidir exactamente con el nombre de tu archivo HTML
-        return "ListadoE";
+       return "ListadoE";
     }
 
-    // AGREGAR
+
     @GetMapping("/entrenadores/nuevo")
     public String mostrarFormularioAgregar(Model model) {
         model.addAttribute("entrenador", new EntrenadorE());
@@ -34,14 +33,14 @@ public class EntrenadorC {
         return "redirect:/entrenadores";
     }
 
-    // ACTUALIZAR
+
     @GetMapping("/entrenadores/editar/{id}")
     public String mostrarFormularioEditar(@PathVariable Long id, Model model) {
         model.addAttribute("entrenador", servicio.buscarPorId(id));
         return "ActualizarE";
     }
 
-    // ELIMINAR (Muestra pantalla de confirmación)
+
     @GetMapping("/entrenadores/eliminar/{id}")
     public String confirmarEliminar(@PathVariable Long id, Model model) {
         model.addAttribute("entrenador", servicio.buscarPorId(id));

@@ -13,20 +13,20 @@ public class JugadorC {
     @Autowired
     private JugadorSi servicio;
 
-    // Menú Principal (Fifa)
+
     @GetMapping("/")
     public String index() {
         return "index";
     }
 
-    // LISTAR
+
     @GetMapping("/jugadores")
     public String listarJugadores(Model model) {
         model.addAttribute("jugadores", servicio.listarTodos());
         return "ListadoJ";
     }
 
-    // AGREGAR
+
     @GetMapping("/jugadores/nuevo")
     public String mostrarFormularioAgregar(Model model) {
         model.addAttribute("jugador", new JugadorE());
@@ -39,14 +39,14 @@ public class JugadorC {
         return "redirect:/jugadores";
     }
 
-    // ACTUALIZAR
+
     @GetMapping("/jugadores/editar/{id}")
     public String mostrarFormularioEditar(@PathVariable Long id, Model model) {
         model.addAttribute("jugador", servicio.buscarPorId(id));
         return "ActualizarJ";
     }
 
-    // ELIMINAR (Muestra confirmación)
+
     @GetMapping("/jugadores/eliminar/{id}")
     public String confirmarEliminar(@PathVariable Long id, Model model) {
         model.addAttribute("jugador", servicio.buscarPorId(id));
